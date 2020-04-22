@@ -8,13 +8,17 @@ sudo su
 apt-get update
 
 ### INSTALL NGINX
-add-apt-repository ppa:nginx/$nginx
+add-apt-repository ppa:nginx/stable
+
 apt-get update
+
 apt-get install nginx
 
 ### INSTALL PHP-FPM7.2
 add-apt-repository ppa:ondrej/php
+
 apt-get update
+
 apt-get install php7.2 php7.2-msql php7.2-mysql php7.2-fpm php7.2-xml php7.2-gd php7.2-opcache php7.2-mbstring
 
 ### INSTALL COMPOSER
@@ -22,14 +26,21 @@ wget https://getcomposer.org/download/1.10.5/composer.phar
 
 ### CHECK FREE MEMORY / ADD SWAP
 free -m
+
 /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+
 /sbin/mkswap /var/swap.1
+
 /sbin/swapon /var/swap.1
+
 
 ### INSTALL LARAVEL FROM GIT
 git clone -b 5.7 https://github.com/laravel/laravel.git
+
 cp .env.example .env
+
 php composer.phar install
+
 php artisan key:generate
 
 ### PERMISSION FOLDER LARAVEL
@@ -76,4 +87,5 @@ nginx -t
 
 ### NGINX RESTART SERVICE AND CHECK STATUS
 service nginx restart
+
 service nginx status
