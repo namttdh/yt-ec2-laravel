@@ -22,7 +22,16 @@ add-apt-repository ppa:ondrej/php
 
 apt-get update
 
-apt-get install php7.2 php7.2-msql php7.2-mysql php7.2-fpm php7.2-xml php7.2-gd php7.2-opcache php7.2-mbstring
+apt-get install php7.2 php7.2-mysql php7.2-fpm php7.2-xml php7.2-gd php7.2-opcache php7.2-mbstring
+
+### INSTALL MYSQL AND SET USER
+apt-get install mysql-server
+
+CREATE USER 'tenuser'@'localhost' IDENTIFIED BY 'matkhau';
+
+GRANT ALL PRIVILEGES ON * . * TO 'tenuser'@'localhost';
+
+FLUSH PRIVILEGES;
 
 ### INSTALL COMPOSER
 wget https://getcomposer.org/download/1.10.5/composer.phar
@@ -45,6 +54,10 @@ cp .env.example .env
 php composer.phar install
 
 php artisan key:generate
+
+php artisan migrate
+
+php artisan make:auth
 
 ### PERMISSION FOLDER LARAVEL
 chown -R www-data:www-data storage/
