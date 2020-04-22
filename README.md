@@ -51,7 +51,7 @@ git clone -b 5.7 https://github.com/laravel/laravel.git
 
 cp .env.example .env
 
-php composer.phar install
+php ../composer.phar install
 
 php artisan key:generate
 
