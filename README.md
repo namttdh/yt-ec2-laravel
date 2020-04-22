@@ -1,5 +1,5 @@
 ### Youtube
-Part 1 - (LINK)[https://www.youtube.com/watch?v=xI9UW6VET08]
+Part 1 - https://www.youtube.com/watch?v=xI9UW6VET08
 
 ### CONNECT
 ssh -i pemfile user@ip
